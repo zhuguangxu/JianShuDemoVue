@@ -1,7 +1,7 @@
-import Vue from 'vue';
-import Router from 'vue-router';
+import Vue from 'vue'
+import Router from 'vue-router'
 
-Vue.use(Router);
+Vue.use(Router)
 
 export default new Router({
   mode: "history",
@@ -19,6 +19,11 @@ export default new Router({
           meta: {title: '关注'}
         },
         {
+          path: 'more_topic',
+          component: resolve => require(['../components/page/Collections.vue'], resolve),
+          meta: {title:'更多热门专题'}
+        },
+        {
           //关注组件
           path: '/subscriptions',
           component: resolve => require(['../components/page/Subscriptions.vue'], resolve),
@@ -28,7 +33,29 @@ export default new Router({
           //消息组件
           path: '/notifications',
           component: resolve => require(['../components/page/Notifications.vue'], resolve),
-          meta: {title: '消息'}
+          meta: {title: '消息'},
+          children: [
+            {
+              path: '/comment',
+              component: resolve => require(['../components/common/message_page/Comment.vue'],resolve),
+              meta: {title:'个人用户评论'}
+            },
+            {
+              path: '/letter',
+              component: resolve => require(['../components/common/message_page/Letter.vue'],resolve),
+              meta: {title:'简信'}
+            },
+            {
+              path: '/likeAndPraise',
+              component: resolve => require(['../components/common/message_page/LikeAndPraise.vue'],resolve),
+              meta: {title:'喜欢和赞'}
+            },
+            {
+              path: '/submission',
+              component: resolve => require(['../components/common/message_page/Submission.vue'],resolve),
+              meta: {title:'投稿请求'}
+            },
+          ]
         },
         {
           //所有用户组件
