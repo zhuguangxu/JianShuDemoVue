@@ -19,14 +19,14 @@ export default new Router({
           meta: {title: '关注'}
         },
         {
-          path: 'more_topic',
+          path: '/more_topic',
           component: resolve => require(['../components/page/Collections.vue'], resolve),
           meta: {title:'更多热门专题'}
         },
         {
           path: '/c/:id',
-          component: resolve => require(['../components/page/Collection.vue'], resolve),
-          meta: {title:'专题详情'}
+          component: resolve => require(['../components/common/Collection.vue'], resolve),
+          meta: {title: '专题详情'}
         },
         {
           //关注组件
@@ -70,7 +70,7 @@ export default new Router({
         },
         {
           //所有专题组件
-          path: '/colletions',
+          path: '/collections',
           component: resolve => require(['../components/page/Collections.vue'], resolve),
           meta: {title: '所有专题'}
         },
@@ -80,6 +80,7 @@ export default new Router({
           component: resolve => require(['../components/page/User.vue'], resolve),
           meta: {title: '个人中心'}
         }
+
       ]
     },
 
@@ -90,10 +91,10 @@ export default new Router({
       meta: {title: '写文章'}
     },
     {
-      // 注册
-      path: '/sign-in',
+      path: '/sing_up',
       component: resolve => require(['../components/page/Login.vue'], resolve),
-      meta: {title: '注册'}
+      meta: {title: '登陆'}
     }
+
   ]
 })

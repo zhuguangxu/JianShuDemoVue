@@ -12,25 +12,27 @@
     <b-collapse is-nav id="nav_collapse">
       <b-navbar-nav>
 
-        <b-nav-item v-if="token!=null">
+        <b-nav-item v-if="token !=null">
           <router-link to="/">发现</router-link>
         </b-nav-item>
 
 
-        <b-nav-item v-if="token!=null">
+        <b-nav-item v-if="token !=null">
           <router-link to="/subscriptions">关注</router-link>
         </b-nav-item>
 
-        <b-nav-item v-if="token!=null">
+        <b-nav-item v-if="token !=null">
           <router-link to="/notifications">消息</router-link>
         </b-nav-item>
 
-        <b-nav-item v-if="token===null">
-          <router-link to="/index">首页</router-link>
+
+        <b-nav-item v-if="token === null">
+          <router-link to="/notifications">首页</router-link>
         </b-nav-item>
-        <b-nav-item v-if="token===null">
-        <router-link to="/download">下载app</router-link>
-      </b-nav-item>
+
+        <b-nav-item v-if="token === null">
+          <router-link to="/notifications">下载APP</router-link>
+        </b-nav-item>
 
         <b-nav-form>
           <b-form-input size="sm" class="mr-sm-2" type="text" placeholder="Search"/>
@@ -39,15 +41,8 @@
       </b-navbar-nav>
 
       <!-- Right aligned nav items -->
-      <b-navbar-nav class="ml-auto">
+      <b-navbar-nav class="ml-auto" v-if="token != null">
         <b-nav-item href="#">Aa</b-nav-item>
-        <b-nav-item v-if="token===null">
-          <router-link to="/sign-up">注册</router-link>
-        </b-nav-item>
-        <b-nav-item v-if="token===null">
-          <router-link to="/sign-in">登录</router-link>
-        </b-nav-item>
-
         <b-nav-item-dropdown right>
           <!-- Using button-content slot -->
           <b-dropdown-item>
@@ -56,16 +51,41 @@
             </router-link>
           </b-dropdown-item>
           <template slot="button-content">
-            <b-img rounded="circle" width="35" height="35" src="../../static/img/101.jpg"/>
-
+            <b-img rounded="circle" width="35" height="35" src="../../static/img/hear.jpg"/>
           </template>
           <b-dropdown-item href="#">设置</b-dropdown-item>
-          <b-dropdown-item href="#">退出</b-dropdown-item>
+          <b-dropdown-item>
+            <router-link to="/sing_up">退出</router-link>
+          </b-dropdown-item>
         </b-nav-item-dropdown>
         <a class="btn write-btn" href="/write">
           写文章
         </a>
       </b-navbar-nav>
+
+
+      <b-navbar-nav class="ml-auto" v-if="token === null">
+        <b-nav-item href="#">Aa</b-nav-item>
+        <b-nav-item href="#">注册</b-nav-item>
+        <b-nav-item href="#">登陆</b-nav-item>
+        <!--<b-nav-item-dropdown right>-->
+        <!--&lt;!&ndash; Using button-content slot &ndash;&gt;-->
+        <!--<b-dropdown-item>-->
+        <!--<router-link to="/u">-->
+        <!--个人中心-->
+        <!--</router-link>-->
+        <!--</b-dropdown-item>-->
+        <!--<template slot="button-content">-->
+        <!--<b-img rounded="circle" width="35" height="35" src="../../static/img/hear.jpg"/>-->
+        <!--</template>-->
+        <!--<b-dropdown-item href="#">设置</b-dropdown-item>-->
+        <!--<b-dropdown-item href="#">退出</b-dropdown-item>-->
+        <!--</b-nav-item-dropdown>-->
+        <a class="btn write-btn" href="/write">
+          写文章
+        </a>
+      </b-navbar-nav>
+
 
     </b-collapse>
   </b-navbar>
@@ -78,8 +98,8 @@
   export default {
     data() {
       return {
-        token: null,
-        name: 'taoranran'
+        name: 'ZGX',
+        token: '1234'
       }
     },
     computed: {
@@ -92,7 +112,7 @@
       // 用户名下拉菜单选择事件
       handleCommand(command) {
         if (command == 'loginout') {
-          localStorage.removeItem('ms_username')
+          localStorage.removeItem('ms_username');
           this.$router.push('/login');
         }
       }

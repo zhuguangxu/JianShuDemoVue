@@ -1,9 +1,9 @@
 <template>
   <div>
     <router-link to="/">
-      回首页
+      <h2>回首页</h2>
     </router-link>
-    <h2>写文章</h2>
+    <h1>写文章</h1>
   </div>
 </template>
 

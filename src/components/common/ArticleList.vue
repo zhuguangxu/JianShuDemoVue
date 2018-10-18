@@ -1,23 +1,26 @@
 <template>
-    <div>
-      <div v-for="article in articleList" :key="article.id">
-        <hr>
-        <b-media right-align vertical-align="center">
-          <b-img slot="aside" fluid  :src="article.articleImgUrl" alt="placeholder" />
-          <h5 class="mt-0 mb-1">{{article.articleTitle}}</h5>
-          <p>{{article.articleInfo}}</p>
-          <b-media>
-            <div>
-              <h6 class="mt-sm-1" style="float: left">{{article.userNickname}}</h6>
-              <!--<b-img class="mt-sm-1" style="float: left" src="../../static/img/like.png"/>-->
-              <!--<b-img class="mt-sm-1" style="float: left" src="../../static/img/message.png"/>-->
-            </div>
-          </b-media>
+  <div>
+    <div v-for="article in articleList" :key="article.id">
+      <hr>
+      <b-media right-align vertical-align="center">
+        <b-img id="articleList-articleAvatar" slot="aside" fluid  :src="article.articleImgUrl" alt="placeholder" />
+        <router-link to="xx">
+          <h5 class="mt-0 mb-1" id="articleList-articleTitle">{{article.articleTitle}}</h5>
+        </router-link>
+        <p>{{article.articleInfo}}</p>
+        <b-media>
+          <div>
+            <router-link to="xx">
+              <h6 class="mt-sm-1" id="articleList-articleUserNickname">{{article.userNickname}}</h6>
+            </router-link>
+            <p id="articleList-like"><i>{{article.articleLike}}</i></p>
+            <p id="articleList-message"><i>{{article.articleMessage}}</i></p>
+          </div>
         </b-media>
-      </div>
+      </b-media>
     </div>
+  </div>
 </template>
-
 <script>
     export default {
         name: "ArticleList",
@@ -73,5 +76,30 @@
 </script>
 
 <style scoped>
+  #articleList-like{
+    float: left;
+    padding-left: 20px;
+    margin: 0 10px;
+    background: left center url('../../../static/img/like.png') no-repeat
+  }
+  #articleList-message{
+    float: left;
+    padding-left: 20px;
+    margin: 0 10px;
+    background: left center url('../../../static/img/message.png') no-repeat
+  }
+  #articleList-articleAvatar{
+    width: 300px;
+    height: 150px;
+  }
 
+  #articleList-articleTitle{
+    color: black;
+    text-decoration: none;
+  }
+  #articleList-articleUserNickname{
+    color: black;
+    text-decoration: none;
+    float: left
+  }
 </style>
