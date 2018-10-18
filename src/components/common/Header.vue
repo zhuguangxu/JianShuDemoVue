@@ -12,18 +12,25 @@
     <b-collapse is-nav id="nav_collapse">
       <b-navbar-nav>
 
-        <b-nav-item>
+        <b-nav-item v-if="token!=null">
           <router-link to="/">发现</router-link>
         </b-nav-item>
 
 
-        <b-nav-item>
+        <b-nav-item v-if="token!=null">
           <router-link to="/subscriptions">关注</router-link>
         </b-nav-item>
 
-        <b-nav-item>
+        <b-nav-item v-if="token!=null">
           <router-link to="/notifications">消息</router-link>
         </b-nav-item>
+
+        <b-nav-item v-if="token===null">
+          <router-link to="/index">首页</router-link>
+        </b-nav-item>
+        <b-nav-item v-if="token===null">
+        <router-link to="/download">下载app</router-link>
+      </b-nav-item>
 
         <b-nav-form>
           <b-form-input size="sm" class="mr-sm-2" type="text" placeholder="Search"/>
@@ -34,6 +41,13 @@
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto">
         <b-nav-item href="#">Aa</b-nav-item>
+        <b-nav-item v-if="token===null">
+          <router-link to="/sign-up">注册</router-link>
+        </b-nav-item>
+        <b-nav-item v-if="token===null">
+          <router-link to="/sign-in">登录</router-link>
+        </b-nav-item>
+
         <b-nav-item-dropdown right>
           <!-- Using button-content slot -->
           <b-dropdown-item>
@@ -64,6 +78,7 @@
   export default {
     data() {
       return {
+        token: null,
         name: 'taoranran'
       }
     },

@@ -7,6 +7,9 @@
         <!--轮播图区域-->
         <v-carousel></v-carousel>
         <br>
+
+
+
         <!--热门专题区域-->
         <div>
           <router-link to="xx">
@@ -44,6 +47,11 @@
           </router-link>
 
         </div>
+
+
+
+
+
         <!--文章列表区-->
         <v-article-list></v-article-list>
       </b-col>
@@ -81,35 +89,35 @@
         </div>
         <ul class="list-unstyled">
           <b-media tag="li" class="my-4">
-            <b-img slot="aside"rounded="circle" src="//cdn2.jianshu.io/assets/web/download-index-side-qrcode-cb13fc9106a478795f8d10f9f632fccf.png" height="56" width="56" alt="placeholder" />
+            <b-img slot="aside"rounded="circle" src="http://pgdsprys8.bkt.clouddn.com/18-10-18/77120350.jpg" height="56" width="56" alt="placeholder" />
             <router-link to="xx">
-              <h5 class="mt-0 mb-1" style="color: darkgrey">List-based</h5>
+              <h5 class="mt-0 mb-1" style="color: darkgrey">仰望天空45° </h5>
             </router-link>
             <p>写了<i>111</i>字，<i>235</i>人喜欢</p>
           </b-media>
           <b-media tag="li" class="my-4">
-            <b-img slot="aside" rounded="circle" src="//cdn2.jianshu.io/assets/web/download-index-side-qrcode-cb13fc9106a478795f8d10f9f632fccf.png" height="56" width="56" alt="placeholder" />
-            <h5 class="mt-0 mb-1">List-based</h5>
+            <b-img slot="aside" rounded="circle" src="http://pgdsprys8.bkt.clouddn.com/18-10-18/42833863.jpg" height="56" width="56" alt="placeholder" />
+            <h5 class="mt-0 mb-1">二十多苏 </h5>
             <p>写了<i>111</i>字，<i>235</i>人喜欢</p>
           </b-media>
           <b-media tag="li" class="my-4">
-            <b-img slot="aside" rounded="circle" src="//cdn2.jianshu.io/assets/web/download-index-side-qrcode-cb13fc9106a478795f8d10f9f632fccf.png" height="56" width="56" alt="placeholder" />
-            <h5 class="mt-0 mb-1">List-based</h5>
+            <b-img slot="aside" rounded="circle" src="http://pgdsprys8.bkt.clouddn.com/18-10-18/45898241.jpg" height="56" width="56" alt="placeholder" />
+            <h5 class="mt-0 mb-1">超能良 </h5>
             <p>写了<i>111</i>字，<i>235</i>人喜欢</p>
           </b-media>
           <b-media tag="li" class="my-4">
-            <b-img slot="aside"rounded="circle" src="//cdn2.jianshu.io/assets/web/download-index-side-qrcode-cb13fc9106a478795f8d10f9f632fccf.png" height="56" width="56" alt="placeholder" />
-            <h5 class="mt-0 mb-1">List-based</h5>
+            <b-img slot="aside"rounded="circle" src="https://upload-images.jianshu.io/upload_images/12759292-47141f493ea961ae.jpg" height="56" width="56" alt="placeholder" />
+            <h5 class="mt-0 mb-1">独角的犀牛</h5>
             <p>写了<i>111</i>字，<i>235</i>人喜欢</p>
           </b-media>
           <b-media tag="li" class="my-4">
-            <b-img slot="aside" rounded="circle" src="//cdn2.jianshu.io/assets/web/download-index-side-qrcode-cb13fc9106a478795f8d10f9f632fccf.png" height="56" width="56" alt="placeholder" />
-            <h5 class="mt-0 mb-1">List-based</h5>
+            <b-img slot="aside" rounded="circle" src="http://pgdsprys8.bkt.clouddn.com/18-10-18/45898241.jpg" height="56" width="56" alt="placeholder" />
+            <h5 class="mt-0 mb-1">超逗的二哈少爷 </h5>
             <p>写了<i>111</i>字，<i>235</i>人喜欢</p>
           </b-media>
           <b-media tag="li" class="my-4">
-            <b-img slot="aside" rounded="circle" src="//cdn2.jianshu.io/assets/web/download-index-side-qrcode-cb13fc9106a478795f8d10f9f632fccf.png" height="56" width="56" alt="placeholder" />
-            <h5 class="mt-0 mb-1">List-based</h5>
+            <b-img slot="aside" rounded="circle" src="http://pgdsprys8.bkt.clouddn.com/18-10-18/42833863.jpg" height="56" width="56" alt="placeholder" />
+            <h5 class="mt-0 mb-1">迅捷CAD</h5>
             <p>写了<i>111</i>字，<i>235</i>人喜欢</p>
           </b-media>
         </ul>

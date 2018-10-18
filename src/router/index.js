@@ -24,6 +24,11 @@ export default new Router({
           meta: {title:'更多热门专题'}
         },
         {
+          path: '/c/:id',
+          component: resolve => require(['../components/page/Collection.vue'], resolve),
+          meta: {title:'专题详情'}
+        },
+        {
           //关注组件
           path: '/subscriptions',
           component: resolve => require(['../components/page/Subscriptions.vue'], resolve),
@@ -83,6 +88,12 @@ export default new Router({
       path: '/write',
       component: resolve => require(['../components/page/Write.vue'], resolve),
       meta: {title: '写文章'}
+    },
+    {
+      // 注册
+      path: '/sign-in',
+      component: resolve => require(['../components/page/Login.vue'], resolve),
+      meta: {title: '注册'}
     }
   ]
 })
