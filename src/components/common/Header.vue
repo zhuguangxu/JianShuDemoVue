@@ -55,7 +55,7 @@
           </template>
           <b-dropdown-item href="#">设置</b-dropdown-item>
           <b-dropdown-item>
-            <router-link to="/sing_up">退出</router-link>
+            <router-link to="/sing_up" :onclick="exit()">退出</router-link>
           </b-dropdown-item>
         </b-nav-item-dropdown>
         <a class="btn write-btn" href="/write">
@@ -66,8 +66,14 @@
 
       <b-navbar-nav class="ml-auto" v-if="token === null">
         <b-nav-item href="#">Aa</b-nav-item>
-        <b-nav-item href="#">注册</b-nav-item>
-        <b-nav-item href="#">登陆</b-nav-item>
+        <b-nav-item>
+          <router-link to="/register">
+            注册
+          </router-link>
+        </b-nav-item>
+        <b-nav-item href="#">
+          <router-link to="/sing_up">登陆</router-link>
+        </b-nav-item>
         <!--<b-nav-item-dropdown right>-->
         <!--&lt;!&ndash; Using button-content slot &ndash;&gt;-->
         <!--<b-dropdown-item>-->
@@ -98,7 +104,7 @@
   export default {
     data() {
       return {
-        name: 'ZGX',
+        name: 'lq',
         token: '1234'
       }
     },
@@ -115,8 +121,10 @@
           localStorage.removeItem('ms_username');
           this.$router.push('/login');
         }
+      },
+      exit(){
+        this.token = '111'
       }
-
     }
   }
 </script>

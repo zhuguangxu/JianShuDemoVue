@@ -148,8 +148,7 @@
               },
               {
                 authorId:3,
-                authorAvatar:'\n' +
-                'https://upload-images.jianshu.io/upload_images/12759292-47141f493ea961ae.jpg'
+                authorAvatar: 'https://upload-images.jianshu.io/upload_images/12759292-47141f493ea961ae.jpg'
               },
               {
                 authorId:4,

@@ -29,6 +29,11 @@ export default new Router({
           meta: {title: '专题详情'}
         },
         {
+          path: '/a/:id',
+          component: resolve => require(['../components/page/ArticleInfo.vue'], resolve),
+          meta:{title:'文章详情'}
+        },
+        {
           //关注组件
           path: '/subscriptions',
           component: resolve => require(['../components/page/Subscriptions.vue'], resolve),
@@ -79,6 +84,13 @@ export default new Router({
           path: '/u',
           component: resolve => require(['../components/page/User.vue'], resolve),
           meta: {title: '个人中心'}
+        },
+        {
+          path: '/other_user/:id',
+          component: resolve => require(['../components/page/User.vue'], resolve),
+          meta: {
+            title:'其他用户的个人中心'
+          }
         }
 
       ]
@@ -94,6 +106,11 @@ export default new Router({
       path: '/sing_up',
       component: resolve => require(['../components/page/Login.vue'], resolve),
       meta: {title: '登陆'}
+    },
+    {
+      path: '/register',
+      component: resolve => require(['../components/page/Register.vue'], resolve),
+      meta:{title:'注册'}
     }
 
   ]

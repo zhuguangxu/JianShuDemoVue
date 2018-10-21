@@ -9,41 +9,38 @@
     </div>
     <div class="login">
       <div class="title">
-        <router-link to="/sign_up">登录</router-link>
+        <router-link to="/sing_up">登录</router-link>
         <b>·</b>
         <router-link to="/register">注册</router-link>
       </div>
       <div class="account-password">
         <div class="input-account">
-          <input type="text" placeholder="手机号或邮箱"/>
+          <input type="text" placeholder="你的昵称"/>
           <i class="iconfont">&#xe715;</i>
         </div>
+        <div class="input-phone">
+          <input type="text" placeholder="手机号"/>
+          <i class="iconfont">&#xe60d;</i>
+        </div>
         <div class="input-password">
-          <input type="password" placeholder="密码"/>
+          <input type="password" placeholder="设置密码"/>
           <i class="iconfont">&#xe709;</i>
         </div>
       </div>
-      <div class="remember-forget">
-        <div class="remember">
-          <input type="checkbox">
-          <span>记住我</span>
-        </div>
-        <div class="forget">
-          <a>登录遇到问题</a>
-        </div>
+      <div class="sign-up">
+        <input type="button" class="btn btn-block" value="注册">
       </div>
-      <div class="sign-in">
-        <input type="button" class="btn btn-block" value="登录">
+      <div class="more-info">
+        <span>点击 “注册” 即表示您同意并愿意遵守简书</span><br>
+        <a href="#">用户协议</a>和<a href="#">隐私政策</a>
       </div>
       <div class="others">
         <div>
-          <span>————&nbsp;&nbsp;</span><span>社交账号登录</span><span>&nbsp;&nbsp;————</span>
+          <span>————&nbsp;&nbsp;</span><span>社交账号直接注册</span><span>&nbsp;&nbsp;————</span>
         </div>
         <ul>
-          <li><a href="#"><i class="iconfont">&#xe65e;</i></a></li>
-          <li><a href="#"><i class="iconfont">&#xe603;</i></a></li>
           <li><a href="#"><i class="iconfont">&#xe601;</i></a></li>
-          <li><a href="#"><i class="iconfont">&#xe676;</i></a></li>
+          <li><a href="#"><i class="iconfont">&#xe603;</i></a></li>
         </ul>
       </div>
     </div>
@@ -51,11 +48,8 @@
 </template>
 
 <script>
-  import 'bootstrap/dist/css/bootstrap.css'
-  import 'jquery/dist/jquery.min'
-  import 'bootstrap/dist/js/bootstrap.min'
   export default {
-    name: "Login"
+    name: "Register"
   }
 </script>
 
@@ -114,7 +108,7 @@
     border-bottom: 2px solid #ea6f5a;
   }
 
-  .title a:nth-child(1) {
+  .title > a:nth-child(3) {
     color: #ea6f5a;
     border-bottom: 2px solid #ea6f5a;
   }
@@ -134,7 +128,7 @@
     margin-bottom: 30px;
   }
 
-  .input-account, .input-password {
+  .input-account, .input-password, .input-phone {
     position: relative;
     width: 300px;
     /*border-radius: 4px 4px 0 0;*/
@@ -172,29 +166,24 @@
     border-radius: 0 0 4px 4px;
   }
 
-  .remember-forget {
-    width: 100%;
-    margin: 20px 0;
-    height: 25px;
-    box-sizing: border-box;
+  .input-phone > input {
+    border-radius: 0;
+
+    border-bottom: none;
   }
 
-  .remember {
-    float: left;
-    font-size: 15px;
-  }
-
-  .forget {
-    float: right;
-    font-size: 15px;
-  }
-
-  .sign-in input {
-    background-color: #3194d0;
+  .sign-up input {
+    background-color: #42c02e;
     border-radius: 30px;
     font-size: 18px;
     padding: 9px 18px;
     color: #fff;
+  }
+
+  .more-info{
+    margin-top: 10px;
+    font-size: 12px;
+    color: #969696;
   }
 
   .others {
@@ -219,18 +208,12 @@
   }
 
   .others > ul > li:nth-child(1) a {
-    color: #e05244;
-  }
-
-  .others > ul > li:nth-child(2) a {
     color: #00bb29;
   }
 
-  .others > ul > li:nth-child(3) a {
+  .others > ul > li:nth-child(2) a {
     color: #498ad5;
   }
 
-  .others > ul > li:nth-child(4) a {
-    color: #999;
-  }
+
 </style>

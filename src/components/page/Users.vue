@@ -11,7 +11,9 @@
           <b-col cols="4" v-for="user in usersList" :key="user.authorId">
             <div id="users-card-list">
               <div id="users-card-userAvatar">
-                <b-img rounded="circle" width="75" height="75" :src="user.authorAvatar" alt="img" class="m-1" />
+                <router-link :to="'/other_user/'+ user.authorId">
+                  <b-img rounded="circle" width="75" height="75" :src="user.authorAvatar" alt="img" class="m-1" />
+                </router-link>
               </div>
               <div id="users-card-contain">
                 <div id="user-card-contain-h3">
@@ -24,7 +26,6 @@
                   <b-button variant="success">关注</b-button>
                 </div>
                 <hr>
-                <!--<p>&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;最近更新-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</p>-->
                 <p>{{user.authorNew1}}</p>
                 <p>{{user.authorNew2}}</p>
               </div>
