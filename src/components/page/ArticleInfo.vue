@@ -4,12 +4,12 @@
     <b-row>
       <b-col cols="2"></b-col>
       <b-col cols="8">
-        <h1>程序员工作三年晒出9月工资条，直言加班太累了，网友评论吵炸锅</h1>
+        <h1>{{articleInfo.article.articleTitle}}</h1>
         <br>
         <b-media>
-          <b-img rounded="circle" slot="aside"  width="45" height="45" src="../../static/img/hear.jpg" alt="placeholder" />
-          <h6 class="mt-sm-0">Java高级架构</h6>
-          <p><i>2018.10.17 17:07</i>，字数<i>111</i>，阅读<i>235</i>，评论<i>23</i>，喜欢<i>23453</i></p>
+          <b-img rounded="circle" slot="aside"  width="45" height="45" :src="articleInfo.authorAvatar" alt="placeholder" />
+          <h6 class="mt-sm-0">{{articleInfo.authorNickname}}</h6>
+          <p><i>{{articleInfo.article.articlePublishTime}}</i>，字数<i>{{articleInfo.article.articleWordsCount}}</i>，阅读<i>{{articleInfo.article.articleReadCount}}</i>，评论<i>{{articleInfo.article.articleCommentCount}}</i>，喜欢<i>{{articleInfo.article.articleLikeCount}}</i></p>
         </b-media>
         <br>
         <div id="article-info-container">
@@ -77,39 +77,31 @@
 </template>
 
 <script>
-    export default {
-        name: "ArticleInfo",
-      data(){
-          return{
-            articleInfo:{
-              authorId:1,
-              articleId:1,
-              authorNickname:'',
-              articleTitle:'',
-              articlePushTime:'',
-              articleWordCount:124,
-              articleReadCount:234,
-              articleCommentCount:235,
-              articleLikeCount:235,
-              articleCommentList:[
-                {
-                  articleId:1,
-                  authorId:2,
-                  commentPushTime:'',
-                  commentInfo:'',
-                  commentZanCount:22,
-                }
-              ]
-            }
-          }
+  export default {
+    name: "ArticleInfo",
+    data(){
+      return{
+        articleId:null,
+        articleInfo:{}
       }
+    },
+    activated(){
+      var that = this;
+      this.articleId = this.$route.params.articleId;
+      this.$http
+        .post('http://localhost:8080/article/oneArticleDetails',{"articleId":this.articleId})
+        .then(function (response) {
+          that.articleInfo = response.data.data
+          console.log(that.articleInfo)
+        })
     }
+  }
 </script>
 
 <style scoped>
-#article-info-container .article-info-container-img{
-  text-align: center;
-}
+  #article-info-container .article-info-container-img{
+    text-align: center;
+  }
   .article-info-comment-zan{
     padding-left: 20px;
     background: left center url("../../../static/img/comment_zan.png") no-repeat;

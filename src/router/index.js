@@ -29,7 +29,7 @@ export default new Router({
           meta: {title: '专题详情'}
         },
         {
-          path: '/a/:id',
+          path: '/a/:articleId',
           component: resolve => require(['../components/page/ArticleInfo.vue'], resolve),
           meta:{title:'文章详情'}
         },
@@ -86,7 +86,7 @@ export default new Router({
           meta: {title: '个人中心'}
         },
         {
-          path: '/other_user/:id',
+          path: '/other_user/:authorId',
           component: resolve => require(['../components/page/User.vue'], resolve),
           meta: {
             title:'其他用户的个人中心'

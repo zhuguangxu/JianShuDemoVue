@@ -12,25 +12,25 @@
     <b-collapse is-nav id="nav_collapse">
       <b-navbar-nav>
 
-        <b-nav-item v-if="token !=null">
+        <b-nav-item v-if="user !=null">
           <router-link to="/">发现</router-link>
         </b-nav-item>
 
 
-        <b-nav-item v-if="token !=null">
+        <b-nav-item v-if="user !=null">
           <router-link to="/subscriptions">关注</router-link>
         </b-nav-item>
 
-        <b-nav-item v-if="token !=null">
+        <b-nav-item v-if="user !=null">
           <router-link to="/notifications">消息</router-link>
         </b-nav-item>
 
 
-        <b-nav-item v-if="token === null">
+        <b-nav-item v-if="user === null">
           <router-link to="/notifications">首页</router-link>
         </b-nav-item>
 
-        <b-nav-item v-if="token === null">
+        <b-nav-item v-if="user === null">
           <router-link to="/notifications">下载APP</router-link>
         </b-nav-item>
 
@@ -41,7 +41,7 @@
       </b-navbar-nav>
 
       <!-- Right aligned nav items -->
-      <b-navbar-nav class="ml-auto" v-if="token != null">
+      <b-navbar-nav class="ml-auto" v-if="user!=null">
         <b-nav-item href="#">Aa</b-nav-item>
         <b-nav-item-dropdown right>
           <!-- Using button-content slot -->
@@ -51,11 +51,11 @@
             </router-link>
           </b-dropdown-item>
           <template slot="button-content">
-            <b-img rounded="circle" width="35" height="35" src="../../static/img/hear.jpg"/>
+            <b-img rounded="circle" width="35" height="35" :src="user.authorAvatar"/>
           </template>
           <b-dropdown-item href="#">设置</b-dropdown-item>
           <b-dropdown-item>
-            <router-link to="/sing_up" :onclick="exit()">退出</router-link>
+            <router-link to="/sing_up" @click="exit">退出</router-link>
           </b-dropdown-item>
         </b-nav-item-dropdown>
         <a class="btn write-btn" href="/write">
@@ -64,7 +64,7 @@
       </b-navbar-nav>
 
 
-      <b-navbar-nav class="ml-auto" v-if="token === null">
+      <b-navbar-nav class="ml-auto" v-if="user === null">
         <b-nav-item href="#">Aa</b-nav-item>
         <b-nav-item>
           <router-link to="/register">
@@ -72,7 +72,7 @@
           </router-link>
         </b-nav-item>
         <b-nav-item href="#">
-          <router-link to="/sing_up">登陆</router-link>
+          <router-link to="/">登陆</router-link>
         </b-nav-item>
         <!--<b-nav-item-dropdown right>-->
         <!--&lt;!&ndash; Using button-content slot &ndash;&gt;-->
@@ -104,15 +104,11 @@
   export default {
     data() {
       return {
-        name: 'lq',
-        token: '1234'
+        user:{}
       }
     },
-    computed: {
-      username() {
-        let username = localStorage.getItem('ms_username');
-        return username ? username : this.name;
-      }
+    created(){
+      this.user = JSON.parse(localStorage.getItem('loginUser'))
     },
     methods: {
       // 用户名下拉菜单选择事件
@@ -123,7 +119,8 @@
         }
       },
       exit(){
-        this.token = '111'
+        localStorage.removeItem('loginUser')
+        this.$router.go(0);
       }
     }
   }

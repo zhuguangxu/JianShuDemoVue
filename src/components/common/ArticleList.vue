@@ -1,20 +1,20 @@
 <template>
   <div>
-    <div v-for="article in articleList" :key="article.id">
+    <div v-for="article in hotArticleList" :key="article.articleId">
       <hr>
       <b-media right-align vertical-align="center">
-        <b-img class="articleList-articleAvatar" slot="aside" fluid  :src="article.articleImgUrl" alt="placeholder" />
-        <router-link :to="'/a/'+ article.id">
+        <b-img class="articleList-articleAvatar" slot="aside" fluid  :src="article.articleThumbnail" alt="placeholder" />
+        <router-link :to="'/a/'+ article.articleId">
           <h5 class="mt-0 mb-1 articleList-articleTitle" >{{article.articleTitle}}</h5>
         </router-link>
-        <p>{{article.articleInfo}}</p>
+        <p>{{article.articleSummary}}</p>
         <b-media>
           <div>
-            <router-link to="xx">
-              <h6 class="mt-sm-1 articleList-articleUserNickname" >{{article.userNickname}}</h6>
+            <router-link :to="'/other_user/'+ article.authorId">
+              <h6 class="mt-sm-1 articleList-articleUserNickname" >{{article.authorNickname}}</h6>
             </router-link>
-            <p class="articleList-like"><i>{{article.articleLike}}</i></p>
-            <p class="articleList-message"><i>{{article.articleMessage}}</i></p>
+            <p class="articleList-like"><i>{{article.articleLikeCount}}</i></p>
+            <p class="articleList-message"><i>{{article.articleCommentCount}}</i></p>
           </div>
         </b-media>
       </b-media>

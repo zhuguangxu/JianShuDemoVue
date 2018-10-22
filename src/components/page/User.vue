@@ -5,9 +5,9 @@
       <b-row>
         <b-col cols="8">
           <b-media>
-            <b-img rounded="circle" slot="aside"  width="65" height="65" src="../../static/img/hear.jpg" alt="placeholder" />
-            <h5 class="mt-0">Media Title</h5>
-            <p>关注<i>111</i>，粉丝<i>235</i>，文章<i>23</i>，字数<i>23453</i>， 收获喜欢<i>235</i></p>
+            <b-img rounded="circle" slot="aside"  width="65" height="65" :src="author.authorAvatar" alt="placeholder" />
+            <h5 class="mt-0">{{author.authorNickname}}</h5>
+            <p>关注<i>{{author.authorFollowCount}}</i>，粉丝<i>{{author.authorFansCount}}</i>，文章<i>{{author.authorArticleCount}}</i>，字数<i>{{author.authorWordsCount}}</i>， 收获喜欢<i>{{author.authorFavoriteCount}}</i></p>
           </b-media>
           <br>
           <div>
@@ -181,7 +181,23 @@
 
 <script>
   export default {
-    name: "User"
+    name: "User",
+    data(){
+      return {
+        authorId:null,
+        author:{}
+      }
+    },
+    activated(){
+      var that = this;
+      this.authorId = this.$route.params.authorId;
+      this.$http
+        .post('http://localhost:8080/author/oneAuthor',{"authorId":this.authorId})
+        .then(function (response) {
+          that.author = response.data.data
+        })
+
+    }
   }
 </script>
 
