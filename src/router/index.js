@@ -24,7 +24,7 @@ export default new Router({
           meta: {title:'更多热门专题'}
         },
         {
-          path: '/c/:id',
+          path: '/c/:topicId',
           component: resolve => require(['../components/common/Collection.vue'], resolve),
           meta: {title: '专题详情'}
         },

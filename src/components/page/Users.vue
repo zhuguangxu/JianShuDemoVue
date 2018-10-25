@@ -8,26 +8,26 @@
     <div>
       <b-container class="bv-example-row">
         <b-row>
-          <b-col cols="4" v-for="user in usersList" :key="user.authorId">
+          <b-col cols="4" v-for="author in allAuthorList" :key="author.authorId">
             <div id="users-card-list">
               <div id="users-card-userAvatar">
-                <router-link :to="'/other_user/'+ user.authorId">
-                  <b-img rounded="circle" width="75" height="75" :src="user.authorAvatar" alt="img" class="m-1" />
+                <router-link :to="'/other_user/'+ author.authorId">
+                  <b-img rounded="circle" width="75" height="75" :src="author.authorAvatar" alt="img" class="m-1" />
                 </router-link>
               </div>
               <div id="users-card-contain">
                 <div id="user-card-contain-h3">
-                  <h3>{{user.authorNickname}}</h3>
+                  <h3>{{author.authorNickname}}</h3>
                 </div>
                 <div id="user-card-contain-p">
-                  <p>{{user.authorInfo}}</p>
+                  <p>{{author.authorDescription}}</p>
                 </div>
                 <div>
                   <b-button variant="success">关注</b-button>
                 </div>
                 <hr>
-                <p>{{user.authorNew1}}</p>
-                <p>{{user.authorNew2}}</p>
+                <p>更新1</p>
+                <p>更新2</p>
               </div>
             </div>
           </b-col>
@@ -115,8 +115,18 @@
             authorNew1:'更新1',
             authorNew2:'更新2'
           },
-        ]
+        ],
+        allAuthorList:[]
       }
+    },
+    activated(){
+      var that = this;
+      this.$http
+        .get('http://localhost:8080/author/allAuthor')
+        .then(function (response) {
+          that.allAuthorList = response.data.data
+          console.log(that.allAuthorList)
+        })
     }
   }
 </script>

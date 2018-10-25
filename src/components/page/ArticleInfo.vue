@@ -92,7 +92,6 @@
         .post('http://localhost:8080/article/oneArticleDetails',{"articleId":this.articleId})
         .then(function (response) {
           that.articleInfo = response.data.data
-          console.log(that.articleInfo)
         })
     }
   }
