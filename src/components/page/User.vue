@@ -5,9 +5,9 @@
       <b-row>
         <b-col cols="8">
           <b-media>
-            <b-img rounded="circle" slot="aside"  width="65" height="65" :src="author.authorAvatar" alt="placeholder" />
-            <h5 class="mt-0">{{author.authorNickname}}</h5>
-            <p>关注<i>{{author.authorFollowCount}}</i>，粉丝<i>{{author.authorFansCount}}</i>，文章<i>{{author.authorArticleCount}}</i>，字数<i>{{author.authorWordsCount}}</i>， 收获喜欢<i>{{author.authorFavoriteCount}}</i></p>
+            <b-img rounded="circle" slot="aside"  width="65" height="65" :src="authorDetails.author.authorAvatar" alt="placeholder" />
+            <h5 class="mt-0">{{authorDetails.author.authorNickname}}</h5>
+            <p>关注<i>{{authorDetails.author.authorFollowCount}}</i>，粉丝<i>{{authorDetails.author.authorFansCount}}</i>，文章<i>{{authorDetails.author.authorArticleCount}}</i>，字数<i>{{authorDetails.author.authorWordsCount}}</i>， 收获喜欢<i>{{authorDetails.author.authorFavoriteCount}}</i></p>
           </b-media>
           <br>
           <div>
@@ -20,84 +20,25 @@
           </div>
           <br>
           <div>
-            <b-media>
-              <b-img rounded="circle" slot="aside" width="26" height="26" src="../../static/img/hear.jpg" alt="placeholder" />
-              <p class="mt-sm-0"><span>不知所措的STRANGER</span><i>关注了作者</i> <i>&dot;</i> <i>10.8 11:15</i></p>
-            </b-media>
-            <b-card>
-              <b-media>
-                <b-img rounded="circle" slot="aside" width="46" height="46" src="../../static/img/hear.jpg" alt="placeholder" />
-                <!--<span style="float: right;margin-top: 12px">111</span>-->
-                <div style="float: right;margin-top: 12px">
-                  <b-button>已关注</b-button>
-                </div>
-                <h6 class="mt-sm-0">Media Title</h6>
-                <p>关注<i>111</i>，粉丝<i>235</i>，文章<i>23</i>，字数<i>23453</i>， 收获喜欢<i>235</i></p>
-              </b-media>
+            <div v-for="article in authorDetails.authorDetailsArticleListVOList" :key="article.articleId">
               <hr>
-              <i style="font-size: 10px">欢迎关注微信公众号“恒宇少年”，专注技术分享交流，现任山东三米技术负责人。 曾任山东讯美网络科技有限公</i>
-            </b-card>
-            <br>
-          </div>
-
-          <div>
-            <b-media>
-              <b-img rounded="circle" slot="aside" width="26" height="26" src="../../static/img/hear.jpg" alt="placeholder" />
-              <p class="mt-sm-0"><span>不知所措的STRANGER</span><i>关注了作者</i> <i>&dot;</i> <i>10.8 11:15</i></p>
-            </b-media>
-            <b-card>
-              <b-media>
-                <b-img rounded="circle" slot="aside" width="46" height="46" src="../../static/img/hear.jpg" alt="placeholder" />
-                <div style="float: right;margin-top: 12px">
-                  <b-button>已关注</b-button>
-                </div>
-                <h6 class="mt-sm-0">Media Title</h6>
-                <p>关注<i>111</i>，粉丝<i>235</i>，文章<i>23</i>，字数<i>23453</i>， 收获喜欢<i>235</i></p>
+              <b-media right-align vertical-align="center">
+                <b-img class="articleList-articleAvatar" slot="aside" fluid  :src="article.articleThumbnail" alt="placeholder" />
+                <router-link :to="'/a/'+ article.articleId">
+                  <h5 class="mt-0 mb-1 articleList-articleTitle" >{{article.articleTitle}}</h5>
+                </router-link>
+                <p>{{article.articleSummary}}</p>
+                <b-media>
+                  <div>
+                    <!--<router-link to="xx">-->
+                    <!--<h6 class="mt-sm-1 articleList-articleUserNickname" >fdgsfdgsdf</h6>-->
+                    <!--</router-link>-->
+                    <p class="articleList-like"><i>{{article.articleCommentCount}}</i></p>
+                    <p class="articleList-message"><i>{{article.articleLikeCount}}</i></p>
+                  </div>
+                </b-media>
               </b-media>
-              <hr>
-              <i style="font-size: 10px">欢迎关注微信公众号“恒宇少年”，专注技术分享交流，现任山东三米技术负责人。 曾任山东讯美网络科技有限公</i>
-            </b-card>
-            <br>
-          </div>
-
-          <div>
-            <b-media>
-              <b-img rounded="circle" slot="aside" width="26" height="26" src="../../static/img/hear.jpg" alt="placeholder" />
-              <p class="mt-sm-0"><span>不知所措的STRANGER</span><i>关注了作者</i> <i>&dot;</i> <i>10.8 11:15</i></p>
-            </b-media>
-            <b-card>
-              <b-media>
-                <b-img rounded="circle" slot="aside" width="46" height="46" src="../../static/img/hear.jpg" alt="placeholder" />
-                <div style="float: right;margin-top: 12px">
-                  <b-button>已关注</b-button>
-                </div>
-                <h6 class="mt-sm-0">Media Title</h6>
-                <p>关注<i>111</i>，粉丝<i>235</i>，文章<i>23</i>，字数<i>23453</i>， 收获喜欢<i>235</i></p>
-              </b-media>
-              <hr>
-              <i style="font-size: 10px">欢迎关注微信公众号“恒宇少年”，专注技术分享交流，现任山东三米技术负责人。 曾任山东讯美网络科技有限公</i>
-            </b-card>
-            <br>
-          </div>
-
-          <div>
-            <b-media>
-              <b-img rounded="circle" slot="aside" width="26" height="26" src="../../static/img/hear.jpg" alt="placeholder" />
-              <p class="mt-sm-0"><span>不知所措的STRANGER</span><i>关注了作者</i> <i>&dot;</i> <i>10.8 11:15</i></p>
-            </b-media>
-            <b-card>
-              <b-media>
-                <b-img rounded="circle" slot="aside" width="46" height="46" src="../../static/img/hear.jpg" alt="placeholder" />
-                <div style="float: right;margin-top: 12px">
-                  <b-button>已关注</b-button>
-                </div>
-                <h6 class="mt-sm-0">Media Title</h6>
-                <p>关注<i>111</i>，粉丝<i>235</i>，文章<i>23</i>，字数<i>23453</i>， 收获喜欢<i>235</i></p>
-              </b-media>
-              <hr>
-              <i style="font-size: 10px">欢迎关注微信公众号“恒宇少年”，专注技术分享交流，现任山东三米技术负责人。 曾任山东讯美网络科技有限公</i>
-            </b-card>
-            <br>
+            </div>
           </div>
         </b-col>
         <b-col cols="4">
@@ -106,7 +47,7 @@
             <router-link to="xx">
               <span style="float: right;padding-left:20px;background: left center url('../../../static/img/bianji.png') no-repeat;color: black">编辑</span>
             </router-link>
-            <p>在校程序员，，正在努力中</p>
+            <p>{{authorDetails.author.authorDescription}}</p>
           </div>
           <hr>
           <div>
@@ -185,7 +126,7 @@
     data(){
       return {
         authorId:null,
-        author:{}
+        authorDetails:{}
       }
     },
     activated(){
@@ -194,7 +135,8 @@
       this.$http
         .post('http://localhost:8080/author/oneAuthor',{"authorId":this.authorId})
         .then(function (response) {
-          that.author = response.data.data
+          that.authorDetails = response.data.data
+          console.log(that.authorDetails)
         })
 
     }
@@ -202,5 +144,30 @@
 </script>
 
 <style scoped>
+  .articleList-like{
+    float: left;
+    padding-left: 20px;
+    margin: 0 10px;
+    background: left center url('../../../static/img/like.png') no-repeat
+  }
+  .articleList-message{
+    float: left;
+    padding-left: 20px;
+    margin: 0 10px;
+    background: left center url('../../../static/img/message.png') no-repeat
+  }
+  .articleList-articleAvatar{
+    width: 300px;
+    height: 150px;
+  }
 
+  .articleList-articleTitle{
+    color: black;
+    text-decoration: none;
+  }
+  .articleList-articleUserNickname{
+    color: black;
+    text-decoration: none;
+    float: left
+  }
 </style>
